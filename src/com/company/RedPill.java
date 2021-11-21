@@ -56,10 +56,13 @@ public class RedPill {
         }
     }
 
+    // Тут я сделал ставку на то что весь файл состоит из строк с контактами, если разбить же одну такую строку то
+    // индекс 3 будет годом рождения т.к. 4-й элемент. Надеюсь понятно написал
     public ArrayList<String> sortContacts(ArrayList<String> contacts) {
         for (int outer = contacts.size() - 1; outer > 1; outer--) {
             for (int inner = 0; inner < outer; inner++) {
-                if (Integer.parseInt(contacts.get(inner).split(" \\| ")[3]) < Integer.parseInt(contacts.get(inner + 1).split(" \\| ")[3])) {
+                if (Integer.parseInt(contacts.get(inner).split(" \\| ")[3])
+                        < Integer.parseInt(contacts.get(inner + 1).split(" \\| ")[3])) {
                     Collections.swap(contacts, inner, inner + 1);
                 }
             }
@@ -68,6 +71,13 @@ public class RedPill {
     }
 
     public void displaySortedContacts(ArrayList<String> contacts) {
-        contacts.forEach(System.out::println);
+        var counter = 0;
+        for (String contact : contacts) {
+            counter++;
+            System.out.println(contact);
+            if (counter == 5) {
+                break;
+            }
+        }
     }
 }
