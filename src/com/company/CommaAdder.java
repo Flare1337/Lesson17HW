@@ -10,7 +10,7 @@ public class CommaAdder {
             char whiteSpace = ' ';
             while (reader.hasNext()) {
                 char[] chars = reader.nextLine().toCharArray();
-                for (char symbol : chars) {
+                for (Character symbol : chars) {
                     if (Character.isDigit(symbol)) {
                         writer.write(symbol);
                     }

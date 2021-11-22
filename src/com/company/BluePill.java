@@ -46,8 +46,8 @@ public class BluePill {
         try (PrintWriter writer = new PrintWriter(new FileOutputStream(fileName))) {
             var count = 0;
             for (Contact contact : contacts) {
-                writer.println(contact.getFirstName() + " | " + contact.getLastName() + " | " +
-                        contact.getPhoneNumber() + " | " + contact.getBirthday());
+                writer.write(contact.getFirstName() + " | " + contact.getLastName() + " | " +
+                        contact.getPhoneNumber() + " | " + contact.getBirthday() + "\n");
                 ++count;
                 if (count == 10) {
                     break;
